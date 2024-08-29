@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
-use App\Models\Product;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -30,9 +31,4 @@ Route::get('/register', function () {
     ]);
 });
 
-Route::get('/product', function () {
-    return view('pages.product', [
-        "welcome" => "welcome back",
-        "product" => Product::all()
-    ]);
-});
+Route::get('/product', [ProductController::class, 'getProduct']);
